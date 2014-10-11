@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="user" location="184,165" size="280,350">
+    <action name="user_*" location="65,75" size="150,146">
+      <result name="left">
+        <resourceEdge source="left" routing="0" target="left.jsp" />
+      </result>
+      <result name="list">
+        <resourceEdge source="list" routing="0" target="list.jsp" />
+      </result>
+      <result name="listAction" />
+      <result name="edit">
+        <resourceEdge source="edit" routing="0" target="edit.jsp" />
+      </result>
+      <result name="add">
+        <resourceEdge source="add" routing="0" target="add.jsp" />
+      </result>
+      <result name="faild">
+        <resourceEdge source="faild" routing="0" target="message.jsp" />
+      </result>
+    </action>
+    <action name="admin_*" location="0,0" size="0,0" />
+  </package>
+  <webResource name="left.jsp" path="/admin/user/left.jsp" location="10,430" size="150,55" />
+  <webResource name="list.jsp" path="/admin/user/list.jsp" location="11,255" size="150,55" />
+  <webResource name="edit.jsp" path="/admin/user/edit.jsp" location="253,10" size="150,55" />
+  <webResource name="add.jsp" path="/admin/user/add.jsp" location="532,255" size="150,55" />
+  <webResource name="message.jsp" path="/admin/message.jsp" location="253,570" size="150,55" />
+</Struts2Diagram>
+

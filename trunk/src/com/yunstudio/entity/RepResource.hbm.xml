@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.yunstudio.entity.RepResource" table="rep_resource" dynamic-insert="true" dynamic-update="true" batch-size="30" >
+
+		<id name="id" type="integer" column="id">
+			<generator class="native" />
+		</id>
+
+		<property name="title" type="string" column="title">
+		</property>
+		<property name="path" type="string" column="path">
+		</property>
+		<property name="length" type="long" column="length">
+		</property>
+		<property name="addtime" type="timestamp" column="addtime">
+		</property>
+		<property name="updatetime" type="timestamp" column="updatetime">
+		</property>
+		<property name="likenum" type="integer" column="likenum">
+		</property>
+		<property name="downloadnum" type="integer" column="downloadnum">
+		</property>
+		<property name="ispassed" type="integer" column="ispassed">
+		</property>
+		<property name="notpassreason" type="string" column="notpassreason">
+		</property>
+		<property name="passtime" type="timestamp" column="passtime">
+		</property>
+		<property name="description" type="string" column="description">
+		</property>
+        <property name="translateurl" type="string" column="translateurl">
+		</property>
+		  <property name="content" type="string" column="content">
+		</property>
+		<property name="topimg" type="string" column="topimg">
+		</property>
+		<property name="uploader" type="string" column="uploader">
+		</property>
+		<property name="commentSize" type="integer" formula="(select count(*) from rep_comment c where c.resourceid=id)">
+		</property>
+		<property name="pointsneed" type="integer" column="pointsneed"></property>
+		<!-- Associations -->
+
+		<!-- 多对一双向关联 RepUser -->
+		<many-to-one name="repUser" class="com.yunstudio.entity.RepUser" fetch="join">
+			<column name="userid" />
+		</many-to-one>
+		
+		<!-- 多对一双向关联 RepGscatalog -->
+		<many-to-one name="repGscatalog" class="com.yunstudio.entity.RepGscatalog" fetch="join">
+			<column name="gscatalogid" />
+		</many-to-one>
+		
+		
+		
+
+		
+		
+		<!--多对一双向关联 RepAdmin --> 
+		<many-to-one name="repAdmin" class="com.yunstudio.entity.RepAdmin" fetch="join">
+			<column name="adminid" />
+		</many-to-one>
+		
+		<!-- 多对一双向关联 RepZycatalog -->
+		<many-to-one name="repZycatalog" class="com.yunstudio.entity.RepZycatalog" fetch="join">
+			<column name="zycatalogid" />
+		</many-to-one>
+		
+		<!-- 多对一双向关联 RepTopic -->
+		<many-to-one name="repTopic" class="com.yunstudio.entity.RepTopic" fetch="join">
+			<column name="topicid" />
+		</many-to-one>
+		
+		<!-- 多对多双向关联 RepTag -->
+		<set name="repTags" table="rep_resource_tag" cascade="save-update" fetch="subselect" lazy="false"><!-- RepTag配置了 inverse="true" -->
+			<key>
+				<column name="resourceid" />
+			</key>
+			<many-to-many class="com.yunstudio.entity.RepTag" column="tagid" />
+		</set>
+		<!-- 多对多双向关联 RepFolder -->
+		<set name="repFolders" table="rep_resource_folder">
+			<key>
+				<column name="resourceid" />
+			</key>
+			<many-to-many class="com.yunstudio.entity.RepFolder" column="folderid" />
+		</set>
+		<!-- 一对多双向关联 RepComment -->
+		<set name="repComments" cascade="delete-orphan" table="rep_comment">
+			<key>
+				<column name="resourceid" />
+			</key>
+			<one-to-many class="com.yunstudio.entity.RepComment" />
+		</set>
+	</class>
+</hibernate-mapping>

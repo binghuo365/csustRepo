@@ -1,0 +1,59 @@
+label.error{color:red;padding:3px 0px;}
+label.generated{display:none;}
+dfn{
+	margin: 5px;
+	color: red;
+}
+.userForm{
+	width: 650px;
+	padding: 10px 50px;
+}
+
+.userForm .right{
+	text-align: right;
+	font-size: 14px;
+}
+.userForm td{
+	vertical-align: 10px;
+}
+.submitBtn{
+	width:63px;
+	height:24px;
+	line-height:24px;
+	background:#4392da;
+	color:#FFF;
+	font-size:14px;
+	border:0;
+	padding:0;
+	margin-left:150px;
+	display: block;
+}
+
+.inputBox{
+	width: 200px;
+	height: 16px;
+	padding: 8px 5px;
+	border: solid 1px #ccc;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+	color: #666;
+	font: normal 14px Arial, Helvetica, sans-serif;
+}
+
+select.loginSelect{
+	width: 200px;
+	height: 32px;
+	border: solid 1px #ccc;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+	color: #666;
+	font: normal 14px Arial, Helvetica, sans-serif;
+}
+input.inputBox,select.loginSelect{
+	margin-left: 20px;
+}
+

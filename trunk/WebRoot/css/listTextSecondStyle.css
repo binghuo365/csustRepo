@@ -1,0 +1,224 @@
+@charset "utf-8";
+/* CSS Document */
+
+								
+
+.main .leftPart{
+	float:left;
+	width:235px;
+	
+}
+
+.main .leftPart .lBox1{
+	margin-bottom:20px;
+}
+.main .leftPart .lBoxTitle{
+	background:url(../images/rBoxTitleBg.gif) center center repeat-x;
+	color:#FFF;
+	height:32px;
+	line-height:32px;
+	position:relative;
+	font-size:16px;
+	font-family:"微软雅黑";
+	padding:0 0 0 10px;
+}
+
+.main .leftPart .lBoxTitle a{
+	position:absolute;
+	bottom:0;
+	right:10px;;
+	color:#FFF;
+	line-height:30px;
+	font-size:12px;
+	font-family:"宋体";
+}
+.main .leftPart .lBox1 ul {
+	border-left:1px #EEE solid;
+	border-right:1px #EEE solid;
+	border-bottom:1px #EEE solid;
+	padding:5px 0;
+}
+.main .leftPart .lBox1 ul li{
+	border-bottom:1px #999999 dashed;
+	margin:0 10px;
+	height:40px;
+	line-height:40px;
+	position:relative;
+	padding-left:20px;
+}
+
+.main .leftPart .lBox1 ul li img{
+	display:inline;
+}
+.main .leftPart .lBox1 ul li .columnLeftArrow{
+	position:absolute;
+	top:10px;
+	left:0;
+}
+.main .leftPart .lBox1 ul li .columnRightArrow{
+	position:absolute;
+	top:10px;
+	right:5px;
+}
+
+.main .leftPart .lBox2{
+	margin-bottom:20px;
+}
+.main .leftPart .lBoxTitle{
+	background:url(../images/rBoxTitleBg.gif) center center repeat-x;
+	color:#FFF;
+	height:32px;
+	line-height:32px;
+	position:relative;
+	font-size:16px;
+	font-family:"微软雅黑";
+	padding:0 0 0 10px;
+}
+
+.main .leftPart .lBoxTitle a{
+	position:absolute;
+	bottom:0;
+	right:10px;;
+	color:#FFF;
+	line-height:30px;
+	font-size:12px;
+	font-family:"宋体";
+}
+.main .leftPart .lBox2 ul {
+	border-left:1px #EEE solid;
+	border-right:1px #EEE solid;
+	border-bottom:1px #EEE solid;
+	padding:5px 0;
+	line-height:35px;
+}
+.main .leftPart .lBox2 ul li{
+	border-bottom:1px #999999 dashed;
+	margin:0 10px;
+	height:35px;
+	line-height:35px;
+	position:relative;
+	padding-left:10px;
+}
+
+.main .leftPart .lBox2 ul li img{
+	display:inline;
+	position:absolute;
+	top:12px;
+	left:0;
+}
+/*leftPart end*/
+
+
+.main .rightPart{
+	float:right;	
+	width:754px;
+	border-bottom:2px #EEE solid;
+	border-left:2px #EEE solid;
+	border-right:2px #EEE solid;
+}
+.main .rightPart .secondTitle{
+	height:36px;
+	background:url(../images/secondTitleBg.jpg) center center repeat-x;
+	position:relative;
+	line-height:36px;
+}
+.main .rightPart .secondTitle .sTitle img{
+	position:absolute;
+	top:7px;
+	left:10px;
+}
+.main .rightPart .secondTitle .sTitle{
+	position:absolute;
+	left:10px;
+	top:0;
+	height:34px;
+	width:100px;
+	text-align:center;
+	border-top:2px #3e93ca solid;
+	border-left:1px #EEE solid;
+	border-right:1px #EEE solid;
+	background:#FFF;
+	line-height:34px;
+	color:#3e93ca;
+	font-weight:bold;
+	padding-left:10px;
+}
+
+.main .rightPart .secondTitle .catalog{
+	height:36px;
+	width:160px;
+	text-align:center;
+	font-size:12px;
+	line-height:12px;
+	position:absolute;
+	right:0;
+	top:7px;
+}
+.main .rightPart .secondTitle .catalog img{
+	display:inline;
+	vertical-align:central;
+}
+
+.main .rightPart ul li{
+	height:100px;
+	border-bottom:1px #EEE solid;
+	margin:0 20px;
+	padding-top:10px;
+
+}
+.main .rightPart ul li .resImg{
+	float:left;
+	border:1px #EEE solid;
+	padding:1px;
+}
+
+.main .rightPart ul li .resDetail{
+}
+
+.main .rightPart ul li .resDetail .resTitle{
+	font-size:14px;
+	color:#5097d9;
+	font-weight:bold;
+	position:relative;
+	font-family:"微软雅黑";
+}
+.main .rightPart ul li .resDetail .resTitle a{
+	color:#5097d9;
+}
+
+.main .rightPart ul li .resDetail .resTitle .resDownload{
+	font-size:12px;
+	font-family:"宋体";
+	position:absolute;
+	right:0;
+	top:0;
+}
+.main .rightPart ul li .resDetail .resInfo{
+	color:#999;
+	font-size:9px;
+}
+.main .rightPart ul li .resDetail .resDescri{
+	color:#666;
+	margin-top:10px;
+	text-indent:2em;
+	height: 60px;
+	overflow: hidden;
+}
+
+.main .rightPart .pagNav{
+	font-size:12px;
+	height:100px;
+	line-height:100px;
+	text-align:center;
+}
+.main .rightPart .pagNav a{
+	padding:2px 4px;
+}
+.main .rightPart .pagNav a:hover{
+	background:#fe5a01;
+	color:#fff;
+}
+.main .rightPart .pagNav a.curPage{
+	background:#fe5a01;
+	color:#fff;
+}

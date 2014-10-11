@@ -1,0 +1,40 @@
+
+<!DOCTYPE struts PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+          "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+
+<package name="asks" namespace="/admin/asks" extends="struts-default">  
+
+	<interceptors>
+		<interceptor name="logInterceptor"
+			class="com.yunstudio.struts.interceptor.LogInterceptor">
+		</interceptor>
+		<interceptor-stack name="logInterceptorStack">
+			<interceptor-ref name="logInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</interceptor-stack>
+		
+	</interceptors>
+	<default-interceptor-ref name="logInterceptorStack"></default-interceptor-ref>
+	
+	<!-- 
+		用于记录日志的拦截器,
+		以上代码需要添加到每一个struts2的配置文件中的包中。
+	 -->
+    <action name="asks_*" class="com.yunstudio.struts.action.admin.asks.AsksAction" method="{1}">  
+        <result name="left" type="dispatcher">/admin/asks/left.jsp</result>  
+        <result name="list" type="dispatcher">/admin/asks/AsksList.jsp</result>  
+        <result name="listUnreply" type="dispatcher">/admin/asks/AsksListUnreply.jsp</result>  
+        <result name="listAction" type="redirectAction">asks_list</result>   
+        <result name="edit" type="dispatcher">/admin/asks/AsksEdit.jsp</result> 
+        <result name="add" type="dispatcher">/admin/asks/AsksAdd.jsp</result> 
+        <result name="reply" type="dispatcher">/admin/asks/AsksReply.jsp</result> 
+        <result name="replyEdit" type="dispatcher">/admin/asks/AsksReplyEdit.jsp</result> 
+        <result name="Success" type="dispatcher">/admin/message.jsp</result>
+        <result name="input" type="dispatcher">/admin/asks/AsksEdit.jsp</result>
+    </action>  
+</package>
+
+</struts>

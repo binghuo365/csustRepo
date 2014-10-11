@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.yunstudio.entity.RepNotice" table="rep_notice" dynamic-insert="true" dynamic-update="true" batch-size="30">
+
+		<id name="id" type="integer" column="id">
+			<generator class="native" />
+		</id>
+
+		<property name="title" type="string" column="title">
+		</property>
+		<property name="addtime" type="timestamp" column="addtime">
+		</property>
+		<property name="content" type="string" column="content">
+		</property>
+		<property name="sort" type="integer" column="sort">
+		</property>
+		<property name="ispassed" type="integer" column="ispassed">
+		</property>
+		<property name="notpassreason" type="string" column="notpassreason">
+		</property>
+		<property name="author" type="string" column="author">
+		</property>
+		<property name="viewtimes" type="integer" column="viewtimes">
+		</property>
+
+		<!-- Associations -->
+
+		<!-- 多对一双向关联  RepAdmin -->
+		<many-to-one name="repAdmin" class="com.yunstudio.entity.RepAdmin" fetch="join" lazy="false">
+			<column name="adminid" />
+		</many-to-one>
+
+	</class>
+</hibernate-mapping>

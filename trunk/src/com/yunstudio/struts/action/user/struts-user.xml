@@ -1,0 +1,52 @@
+<!DOCTYPE struts PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+          "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="userOpt" namespace="/" extends="struts-default">
+	
+	
+		<!-- 用户行为的拦截器 -->
+		<interceptors>
+			<interceptor name="userInterceptor"
+				class="com.yunstudio.struts.interceptor.UserInterceptor">
+			</interceptor>
+			<interceptor-stack name="userInterceptorStack">
+				<interceptor-ref name="userInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+			
+		</interceptors>
+		<default-interceptor-ref name="userInterceptorStack"></default-interceptor-ref>
+	
+		<action name="userOpt_*"
+			class="com.yunstudio.struts.action.user.UserOption"
+			method="{1}">
+			<result name="signin" type="dispatcher">/UserSignin.jsp</result>
+			<result name="signinfailed" type="dispatcher">/UserSignin.jsp</result>
+			<result name="login" type="dispatcher">/UserLogin.jsp</result>
+			<result name="loginfailed" type="dispatcher">/UserLogin.jsp</result>
+			<result name="success" type="dispatcher">/message.jsp</result>
+			<result name="failed" type="dispatcher">/message.jsp</result>
+			<result name="index" type="redirectAction">index</result>
+			<result name="usercenter" type="dispatcher">/UserCenter.jsp</result>
+			<result name="redirect_user_center" type="redirectAction">userOpt_showcenter</result>
+			<result name="listFolderInside" type="dispatcher">/usercenter/Collection.jsp</result>
+			<result name="update">/usercenter/UpdateUserInfo.jsp</result>
+			<result name="updatePassword">/usercenter/UpdatePassword.jsp</result>
+		</action>
+		<action name="resource_*"
+			class="com.yunstudio.struts.action.user.ResourceAction"
+			method="{1}">
+			<result name="update" type="dispatcher">/usercenter/ResourceModify.jsp
+			</result>
+			<result name="add" type="dispatcher">/usercenter/ResourceAdd.jsp
+			</result>
+			<result name="addmulti" type="dispatcher">/usercenter/ResourceAddMulti.jsp
+			</result>
+			<result name="success" type="dispatcher">/message.jsp</result>
+			<result name="failed" type="dispatcher">/message.jsp</result>
+		</action>
+	</package>
+	
+</struts>

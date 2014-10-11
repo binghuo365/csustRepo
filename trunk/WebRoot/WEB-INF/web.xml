@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	<!-- <error-page>
+   		<exception-type>java.lang.Exception</exception-type>
+    	<location>/WEB-INF/error.jsp</location>
+	</error-page> -->
+
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/classes/applicationContext.xml</param-value>
+	</context-param>
+	<context-param>
+		<param-name>officehome</param-name>
+		<param-value>D:\Program Files (x86)\LibreOffice 3.4</param-value>
+		<!-- <param-value></param-value> -->
+	</context-param>
+	<context-param>
+		<param-name>portnumbers</param-name>
+		<param-value>8100</param-value>
+	</context-param>	
+	
+	<servlet>
+	    <servlet-name>connect_discuz</servlet-name>
+	    <servlet-class>com.fivestars.interfaces.bbs.api.UC</servlet-class>
+	    <load-on-startup>2</load-on-startup>
+	</servlet>
+  	<servlet-mapping>
+    	<servlet-name>connect_discuz</servlet-name>
+    	<url-pattern>/api/uc.php</url-pattern>
+  	</servlet-mapping>  
+  
+	 <servlet>
+	    <servlet-name>DruidStatView</servlet-name>
+	    <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>DruidStatView</servlet-name>
+	    <url-pattern>/admin/druid/*</url-pattern>
+	</servlet-mapping>
+	
+	<!--登录模块的过滤器。
+		为方便大家调试，暂时注释掉了，取消注释则必须在admin表中自建管理员帐号才能登录.
+		@author 杨真 2013-8-20-->
+	<filter>
+		<filter-name>adminLoginFilter</filter-name>
+		<filter-class>com.yunstudio.struts.filter.AdminLoginFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>adminLoginFilter</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+	</filter-mapping>
+	
+	<!--后台用户权限控制的过滤器。
+		为方便大家调试，暂时注释掉了，取消注释则必须在取消注释前自建好Permission表，
+			再到角色管理与后台用户管理中设置好管理员的角色和权限才能正常访问
+		@author 杨真 2013-8-20-->
+	<filter>
+		<filter-name>adminPrivilegeFilter</filter-name>
+		<filter-class>com.yunstudio.struts.filter.AdminPrivilegeFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>adminPrivilegeFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	
+	
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>*.do</url-pattern>
+		<url-pattern>/admin/login.jsp</url-pattern>
+	</filter-mapping>
+	
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>com.yunstudio.struts.listener.SessionListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.yunstudio.struts.listener.ContextListener</listener-class>
+	</listener>
+	
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ValidateCode</servlet-name>
+    <servlet-class>com.yunstudio.utils.ValidateCode</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ValidateCode</servlet-name>
+    <url-pattern>/validatecode.png</url-pattern>
+  </servlet-mapping>
+  <!-- 
+	<filter>
+		<filter-name>hibernateFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>hibernateFilter</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping> -->
+ <filter>  
+        <filter-name>encodingFilter</filter-name>  
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
+        <init-param>  
+            <param-name>encoding</param-name>  
+            <param-value>utf-8</param-value>  
+        </init-param>  
+    </filter>  
+      
+    <filter-mapping>  
+        <filter-name>encodingFilter</filter-name>  
+        <url-pattern>/*</url-pattern>  
+    </filter-mapping>  
+</web-app>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.yunstudio.entity.RepFolder" table="rep_folder"  dynamic-insert="true" dynamic-update="true">
+
+		<id name="id" type="integer" column="id">
+			<generator class="native" />
+		</id>
+
+		<property name="name" type="string" column="name">
+		</property>
+		<property name="description" type="string" column="description">
+		</property>
+
+		<!-- Associations -->
+		<!-- 自身关联-->
+		
+		<set name="children" table="rep_folder">
+			<key>
+				<column name="fatherid" />
+			</key>
+			<one-to-many class="com.yunstudio.entity.RepFolder" />
+		</set>
+		<many-to-one name="father" class="com.yunstudio.entity.RepFolder" fetch="join" lazy="false">
+			<column name="fatherid" />
+		</many-to-one>
+		
+		
+		<!-- 多对多的关系 repResources -->
+		<set name="repResources" table="rep_resource_folder"><!-- repResource设置了inverse="true" -->
+			<key column="folderid"></key>
+			<many-to-many class="com.yunstudio.entity.RepResource" column="resourceid" />
+		</set>
+		
+		<!--多对一 repUser -->
+		<many-to-one name="repUser" class="com.yunstudio.entity.RepUser" fetch="join" lazy="false">
+			<column name="userid"></column>
+		</many-to-one>
+
+	</class>
+</hibernate-mapping>

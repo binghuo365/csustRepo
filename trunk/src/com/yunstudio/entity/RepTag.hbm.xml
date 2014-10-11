@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+
+	<class name="com.yunstudio.entity.RepTag" table="rep_tag" dynamic-insert="true" dynamic-update="true" batch-size="30">
+	  
+
+		<id name="id" type="integer" column="id"> 
+			<generator class="native" />
+		</id>
+
+		<property name="name" type="string" column="name"> 
+		</property> 
+		 
+	<!-- 多对多双向关联 RepResource -->
+		<set name="repResources" table="rep_resource_tag" inverse="false">
+			<key>
+				<column name="tagid" />
+			</key>
+			<many-to-many class="com.yunstudio.entity.RepResource" column="resourceid" />
+		</set>
+	</class>
+</hibernate-mapping>

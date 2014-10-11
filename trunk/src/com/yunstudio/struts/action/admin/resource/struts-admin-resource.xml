@@ -1,0 +1,68 @@
+<!DOCTYPE struts PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+          "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+
+	<package name="resource" namespace="/admin/resource" extends="struts-default">
+
+		<interceptors>
+			<interceptor name="logInterceptor"
+				class="com.yunstudio.struts.interceptor.LogInterceptor">
+			</interceptor>
+			<interceptor-stack name="logInterceptorStack">
+				<interceptor-ref name="logInterceptor"></interceptor-ref>
+				<interceptor-ref name="fileUpload">
+		
+					<!--文件类型和大小等限制 -->
+					<param name="maximumSize">5242880000</param><!-- 单位是字节 2M 2097152B -->
+		
+					<!-- <param name="allowedTypes">image/bmp,image/x-png,image/png,image/gif,image/jpeg,image/jpg,image/pjpeg</param> -->
+		
+					<!--容许文件类型为doc,ppt,xls,pdf,txt,java -->
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+
+		</interceptors>
+		<default-interceptor-ref name="logInterceptorStack"></default-interceptor-ref>
+
+		<!-- 用于记录日志的拦截器, 以上代码需要添加到每一个struts2的配置文件中的包中。 -->
+		<action name="resource_*"
+			class="com.yunstudio.struts.action.admin.resource.ResourceAction"
+			method="{1}">
+			<result name="list" type="dispatcher">/admin/resource/ResourceList.jsp
+			</result>
+			<result name="update" type="dispatcher">/admin/resource/ResourceModify.jsp
+			</result>
+			<result name="add" type="dispatcher">/admin/resource/ResourceAdd.jsp
+			</result>
+			<result name="addmulti" type="dispatcher">/admin/resource/ResourceAddMulti.jsp
+			</result>
+			<result name="success" type="dispatcher">/admin/message.jsp</result>
+			<result name="addcomment" type="dispatcher">admin/resource/ResourceAddComment.jsp
+			</result>
+			<result name="failed" type="dispatcher">/admin/message.jsp</result>
+			<result name="testview" type="dispatcher">/thirdparty/officetranslate/readFile.jsp</result>
+		</action>
+		<!-- <action name="resourceupload"
+			class="com.yunstudio.struts.action.admin.resource.ResourceAction"
+			method="uploadFile">
+		</action> -->
+
+		<action name="comment_*"
+			class="com.yunstudio.struts.action.admin.resource.CommentAction"
+			method="{1}">
+			<result name="left" type="dispatcher">/admin/resource/left.jsp</result>
+			<result name="list" type="dispatcher">/admin/resource/CommentList.jsp
+			</result>
+			<result name="listAction" type="redirectAction">comment_list</result>
+			<result name="add" type="dispatcher">/admin/resource/CommentAdd.jsp
+			</result>
+			<result name="edit" type="dispatcher">/admin/resource/CommentModify.jsp
+			</result>
+			<result name="success" type="dispatcher">/admin/message.jsp</result>
+		</action>
+	</package>
+	
+</struts>

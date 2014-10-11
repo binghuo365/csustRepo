@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+<session-factory>
+
+	<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+	<property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/repository?characterEncoding=UTF-8</property>
+	<property name="hibernate.connection.username">root</property>
+	<property name="hibernate.connection.password">yun</property>
+	
+	<property name="hibernate.c3p0.idle_test_period">18</property>
+	<property name="hibernate.c3p0.max_size">50</property>
+	<property name="hibernate.c3p0.min_size">0</property>
+	<property name="hibernate.c3p0.acquire_increment">5</property>
+	<property name="hibernate.c3p0.max_statements">0</property>
+	<property name="hibernate.c3p0.timeout">10000</property>
+	<property name="hibernate.c3p0.idle_test_period">120</property>
+	<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+
+	<property name="show_sql">true</property>
+	<property name="hbm2ddl.auto">update</property>
+
+	<!-- <property name="current_session_context_class">thread</property> -->
+	
+	<mapping resource="com/yunstudio/entity/RepAdmin.hbm.xml" />
+	<mapping resource="com/yunstudio/entity/RepComment.hbm.xml" />
+	<mapping resource="com/yunstudio/entity/RepFolder.hbm.xml" />
+	<mapping resource="com/yunstudio/entity/RepFormat.hbm.xml" />
+	<mapping resource="com/yunstudio/entity/RepGscatalog.hbm.xml" />
+	<mapping resource="com/yunstudio/entity/RepLog.hbm.xml" />
+	<mapping resource="com/yunstudio/entity/RepMessage.hbm.xml" />
+	<mapping resource="com/yunstudio/entity/RepNotice.hbm.xml" />
+	<mapping resource="com/yunstudio/entity/RepParam.hbm.xml" />
+	<mapping resource="com/yunstudio/entity/RepPermission.hbm.xml" />
+	<mapping resource="com/yunstudio/entity/RepResource.hbm.xml" />
+	<mapping resource="com/yunstudio/entity/RepRole.hbm.xml" />
+	<mapping resource="com/yunstudio/entity/RepTag.hbm.xml" />
+	<mapping resource="com/yunstudio/entity/RepTopic.hbm.xml" />
+	<mapping resource="com/yunstudio/entity/RepUser.hbm.xml" />
+	<mapping resource="com/yunstudio/entity/RepZycatalog.hbm.xml" />
+</session-factory>
+
+</hibernate-configuration>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.yunstudio.entity.RepTopic" table="rep_topic" dynamic-insert="true" dynamic-update="true" batch-size="30">
+		<id name="id" type="integer" column="id">
+			<generator class="native" />
+		</id>
+
+		<property name="title" type="string" column="title">
+		</property>
+		<property name="description" type="string" column="description">
+		</property>
+
+		<!-- Associations -->
+
+		<!--  关联 RepGscatalog -->
+		<many-to-one name="repGscatalog" class="com.yunstudio.entity.RepGscatalog" fetch="join">
+			<column name="gscatalogid" />
+		</many-to-one>
+
+		<!--  关联 RepZycatalog -->
+		<many-to-one name="repZycatalog" class="com.yunstudio.entity.RepZycatalog" fetch="join">
+			<column name="zycatalogid" />
+		</many-to-one>
+		<!--  关联 RepUser -->
+		<many-to-one name="repUser" class="com.yunstudio.entity.RepUser">
+			<column name="userid" />
+		</many-to-one>
+		
+		<!-- 双向一对多 RepResource -->
+		<set name="repResources" table="rep_resource">
+			<key>
+				<column name="topicid" />
+			</key>
+			<one-to-many class="com.yunstudio.entity.RepResource" />
+		</set>
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+配置教程:
+
+1.首先服务器必须安装LibreOffice3.4版本
+(几乎唯一的下载地址:http://awjpcaagj6.l4.yunpan.cn/lk/Q9ckdgi7ik6KV)
+
+2.修改WEB-INF目录下的的web.xml文件里的officehome配置参数
+
+3.重启tomcat服务器
+	
+		
+参考博客:
+
+1.http://blog.sina.com.cn/s/blog_8e90cf86010141ah.html
+2.pdf2flash参数详解
+http://www.cnblogs.com/jiang1984j/archive/2010/07/23/1986757.html

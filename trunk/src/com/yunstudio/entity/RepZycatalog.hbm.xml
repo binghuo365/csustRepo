@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.yunstudio.entity.RepZycatalog" table="rep_zycatalog" dynamic-insert="true" dynamic-update="true"> 
+
+		<id name="id" type="integer" column="id"> 
+			<generator class="native" />
+		</id>
+
+		<property name="name" type="string" column="name"> 
+		</property>
+		<property name="description" type="string" column="description"> 
+		</property>
+
+		<!-- Associations -->
+
+		<!-- 双向一对多RepResource -->
+		<set name="repResources" inverse="false" table="rep_resource"> 
+			<key>
+				<column name="zycatalogid" />
+			</key>
+			<one-to-many class="com.yunstudio.entity.RepResource" />
+		</set>
+		
+		<!--自身关联 RepZycatalog -->
+		<set name="children" inverse="false" table="rep_zycatalog"> 
+			<key>
+				<column name="fatherid" />
+			</key>
+			<one-to-many class="com.yunstudio.entity.RepZycatalog" />
+		</set> 
+		<many-to-one name="father" class="com.yunstudio.entity.RepZycatalog" fetch="join" lazy="false"> 
+			<column name="fatherid" />
+		</many-to-one>
+		
+		
+		<!-- 关联topic表 -->
+		
+		<set name="repTopics" inverse="false" table="rep_topic">
+			<key>
+				<column name="zycatalogid" />
+			</key>
+			<one-to-many class="com.yunstudio.entity.RepTopic" />
+		</set>
+
+	</class>
+</hibernate-mapping>

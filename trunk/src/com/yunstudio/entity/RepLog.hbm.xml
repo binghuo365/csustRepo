@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.yunstudio.entity.RepLog" table="rep_log" dynamic-insert="true" dynamic-update="true" batch-size="30">
+		<id name="id" type="integer" column="id">
+			<generator class="native" />
+		</id>
+
+		<property name="operationip" type="string" column="operationip">
+		</property>
+		<property name="operationtype" type="string" column="operationtype">
+		</property>
+		<property name="operationtime" type="timestamp" column="operationtime">
+		</property>
+		<property name="description" type="string" column="description">
+		</property>
+		<property name="operator" type="string" column="operator">
+		</property>
+
+		<!-- Associations -->
+
+		<!-- 多对一双向关联 RepAdmin -->
+		<many-to-one name="repAdmin" class="com.yunstudio.entity.RepAdmin" fetch="join">
+			<column name="adminid" />
+		</many-to-one>
+
+	</class>
+</hibernate-mapping>

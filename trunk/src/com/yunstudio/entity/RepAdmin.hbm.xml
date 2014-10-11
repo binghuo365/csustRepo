@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.yunstudio.entity.RepAdmin" table="rep_admin" dynamic-insert="true" dynamic-update="true" batch-size="30">
+		<id name="id" type="integer" column="id">
+			<generator class="native" />
+		</id>
+
+		<property name="username" type="string" column="username">
+		</property>
+		<property name="password" type="string" column="password">
+		</property>
+		<property name="email" type="string" column="email">
+		</property>
+		<property name="islock" type="integer" column="islock">
+		</property>
+		<property name="addtime" type="timestamp" column="addtime">
+		</property>
+		<property name="snumber" type="string" column="snumber">
+		</property>
+		<property name="realname" type="string" column="realname">
+		</property>
+		<property name="gender" type="integer" column="gender">
+		</property>
+		<property name="school" type="string" column="school">
+		</property>
+		<property name="major" type="string" column="major">
+		</property>
+		<property name="qq" type="string" column="qq">
+		</property>
+		<property name="phone" type="string" column="phone">
+		</property>
+		<property name="lastloginip" type="string" column="lastloginip">
+		</property>
+		<property name="lastlogintime" type="timestamp" column="lastlogintime">
+		</property>
+<!-- 
+		Associations
+
+		与 RepMessage 一对多双向连接 -->
+		<set name="repMessages" table="rep_message">
+			<key>
+				<column name="repadminid" />
+			</key>
+			<one-to-many class="com.yunstudio.entity.RepMessage" />
+		</set>
+		
+		<!-- 一对多双向关联 RepLog -->
+		<set name="repLogs" table="rep_log">
+			<key>
+				<column name="adminid" />
+			</key>
+			<one-to-many class="com.yunstudio.entity.RepLog" />
+		</set>
+		
+		<!-- 一对多双向关联 RepResource -->
+		<set name="repResources" table="rep_resource">
+			<key>
+				<column name="adminid" />
+			</key>
+			<one-to-many class="com.yunstudio.entity.RepResource" />
+		</set>
+		
+		<!-- 一对多双向关联 RepNotice -->
+		<set name="repNotices" table="rep_notice">
+			<key>
+				<column name="adminid" />
+			</key>
+			<one-to-many class="com.yunstudio.entity.RepNotice" />
+		</set>
+		
+		<!-- 一对多双向关联 RepRole -->
+		<many-to-one name="repRole" class="com.yunstudio.entity.RepRole" fetch="join" lazy="false">
+			<column name="roleid" />
+		</many-to-one>
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,78 @@
+<!DOCTYPE struts PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+          "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+
+	<package name="index" namespace="/" extends="struts-default">
+
+		
+		<action name="index"
+			class="com.yunstudio.struts.action.user.IndexAction"
+			method="index">
+			<result name="success" type="dispatcher">/Index.jsp</result>
+		</action>
+		
+		<action name="notice"
+			class="com.yunstudio.struts.action.user.SecondAction"
+			method="notice">
+			<result name="success" type="dispatcher">/NoticeSecond.jsp</result>
+		</action>
+		
+		<action name="gscatalog"
+			class="com.yunstudio.struts.action.user.SecondAction"
+			method="second">
+			<result name="listtext" type="dispatcher">/ListTextSecond.jsp</result>
+			<result name="listimg" type="dispatcher">/ListImgSecond.jsp</result>
+		</action>
+		
+		<action name="search"
+			class="com.yunstudio.struts.action.user.SecondAction"
+			method="search">
+			<result name="success" type="dispatcher">/Search.jsp</result>
+		</action>
+		
+		<action name="view"
+			class="com.yunstudio.struts.action.user.ThirdAction"
+			method="view">
+			<result name="success" type="dispatcher">/Third.jsp</result>
+		</action>
+		
+		<action name="viewnotice"
+			class="com.yunstudio.struts.action.user.ThirdAction"
+			method="viewnotice">
+			<result name="success" type="dispatcher">/NoticeThird.jsp</result>
+		</action>
+		
+		<action name="contact"
+			class="com.yunstudio.struts.action.user.ThirdAction"
+			method="contact">
+			<result name="success" type="dispatcher">/Contact.jsp</result>
+		</action>
+		
+		<action name="collect"
+			class="com.yunstudio.struts.action.user.ThirdAction"
+			method="collect">
+			<result name="success" type="dispatcher">/message.jsp</result>
+			<result name="failed" type="dispatcher">/message.jsp</result>
+		</action>
+		
+		<action name="download"
+			class="com.yunstudio.struts.action.user.ThirdAction"
+			method="download">
+			<result name="success" type="stream">
+              <param name="contentDisposition">attachment;filename="${fileName}"</param>
+
+              <param name="inputName">inputStream</param>
+			</result>
+			<result name="failed" type="dispatcher">/message.jsp</result>
+		</action>
+		
+		<action name="zan"
+			class="com.yunstudio.struts.action.user.ThirdAction"
+			method="zan">
+		</action>
+		
+	</package>
+	
+</struts>

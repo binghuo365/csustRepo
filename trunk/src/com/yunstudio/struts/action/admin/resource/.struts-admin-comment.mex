@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="comment" location="0,0" size="0,0">
+    <action name="Comment*" location="0,0" size="0,0">
+      <result name="List">
+        <resourceEdge source="List" routing="0" target="CommentList.jsp" />
+      </result>
+      <result name="Modify">
+        <resourceEdge source="Modify" routing="0" target="CommentModify.jsp" />
+      </result>
+      <result name="Success">
+        <resourceEdge source="Success" routing="0" target="message.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="ResourceList.jsp" path="/admin/resource/ResourceList.jsp" location="566,10" size="150,55" />
+  <webResource name="ResourceModify.jsp" path="/admin/resource/ResourceModify.jsp" location="240,430" size="150,55" />
+  <webResource name="ResourceAdd.jsp" path="/admin/resource/ResourceAdd.jsp" location="249,255" size="150,55" />
+  <webResource name="message.jsp" path="/admin/message.jsp" location="10,150" size="150,55" />
+  <webResource name="CommentList.jsp" path="/admin/resource/CommentList.jsp" location="565,850" size="150,55" />
+  <webResource name="CommentModify.jsp" path="/admin/resource/CommentModify.jsp" location="869,640" size="150,55" />
+</Struts2Diagram>
+

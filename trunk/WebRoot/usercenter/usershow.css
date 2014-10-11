@@ -1,0 +1,154 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	padding:20px 0px;
+	margin:0;
+	position:relative;
+	color:#666;
+	font-family:"宋体","微软雅黑";
+	font-size:14px;
+	line-height:20px;
+}
+img{
+	display:block;
+}
+li img{
+	border:0;
+}
+a{
+	color:#666;
+	text-decoration:none;
+}
+a:hover{
+	color:#999;
+	text-decoration:none;
+}
+ul li img{
+	display:inline;
+}
+ul,li{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+
+ul.folder li{
+	height:36px;
+	line-height:36px;
+	background:url(folder.png) left center no-repeat;
+	padding-left:58px;
+	border-bottom:1px #EEE solid;
+	margin:0 20px;
+}
+ul.folder li img{
+	vertical-align:central;
+}
+
+ul.resou li{
+	height:100px;
+	border-bottom:1px #EEE solid;
+	margin:0 20px;
+	padding-top:10px;
+}
+ul.resou li .resImg{
+	float:left;
+	border:1px #EEE solid;
+	padding:1px;
+}
+
+ul.resou li .resDetail{
+}
+
+ul.resou li .resDetail .resTitle{
+	font-size:14px;
+	color:#5097d9;
+	font-weight:bold;
+	position:relative;
+	font-family:"微软雅黑";
+}
+ul.resou li .resDetail .resTitle a{
+	color:#5097d9;
+}
+
+ul.resou li .resDetail .resTitle .resDownload{
+	font-size:12px;
+	font-family:"宋体";
+	position:absolute;
+	right:0;
+	top:0;
+	width: 150px;
+}
+ul.resou li .resDetail .resInfo{
+	color:#999;
+	font-size:12px;
+}
+ul.resou li .resDetail .resDescri{
+	color:#666;
+	margin-top:10px;
+	text-indent:2em;
+}
+
+.pagNav{
+	font-size:12px;
+	height:100px;
+	line-height:100px;
+	text-align:center;
+}
+.pagNav a{
+	padding:2px 4px;
+}
+.pagNav a:hover{
+	background:#fe5a01;
+	color:#fff;
+}
+.pagNav a.curPage{
+	background:#fe5a01;
+	color:#fff;
+}
+
+/*添加资源相关的样式*/
+select#gscatalogid,select#zycatalogid{
+	width: 120px;
+}
+
+.resourceForm{
+	font-size: 12px;
+	margin-left: 10px;
+}
+.add-picture {
+	background: url(button.png) no-repeat -87px -314px;
+	width: 106px;
+	height: 24px;
+	color: #666666;
+	line-height: 24px;
+	text-indent: 18px;
+	border: 0 none;
+	cursor: pointer;
+}
+.submit {
+background: url(theme-button.png) no-repeat -71px -35px;
+width: 59px;
+height: 24px;
+border: 0 none;
+cursor: pointer;
+color: #666665;
+text-indent: 18px;
+cursor: pointer;
+}
+.reset {
+background: url(theme-button.png) no-repeat -141px -35px;
+width: 59px;
+height: 24px;
+border: 0 none;
+cursor: pointer;
+color: #666665;
+text-indent: 18px;
+cursor: pointer;
+}
+
+.auditStatus{
+	font-size: 12px;
+	color: #ccc;
+	font-style: oblique;
+}

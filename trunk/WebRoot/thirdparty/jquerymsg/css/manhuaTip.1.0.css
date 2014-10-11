@@ -1,0 +1,30 @@
+.msgbox_layer, .msgbox_layer .gtl_ico_succ, .msgbox_layer .gtl_ico_fail, .msgbox_layer .gtl_ico_hits, .msgbox_layer .gtl_ico_clear, .msgbox_layer .gtl_end {
+	background: url("../images/gb_tip_layer.png") white;
+	border: 2px #4392da solid;
+	background-repeat: no-repeat;
+	color: #606060;
+	display: inline-block;
+	font-size: 14px;
+	height: 80px;
+	line-height: 20px; 
+	padding: 10px 3px;}
+.msgbox_layer_wrap {left: 0;position: fixed;_position: absolute;_top: expression(documentElement.clientHeight/2 + documentElement.scrollTop + "px");text-align: center;top: 46%;width: 100%;z-index: 65533;}
+.msgbox_layer {background-position: 0 -161px;background-repeat: repeat-x;margin: 0 auto;padding: 0 18px 0 9px;position: relative;z-index: 65532;}
+.msgbox_layer .gtl_ico_succ {background-position: -6px 0;left: -45px;position: absolute;top: 0;width: 45px;}
+.msgbox_layer .gtl_end {background-position: 0 0;position: absolute;right: -6px;top: 0;width: 6px;}
+.msgbox_layer .gtl_ico_fail {background-position: -6px -108px;left: -45px;position: absolute;top: 0;width: 45px;}
+.msgbox_layer .gtl_ico_hits {background-position: -6px -54px;left: -45px;position: absolute;top: 0;width: 45px;}
+.msgbox_layer .gtl_ico_clear {background-position: -6px 0;left: -5px;position: absolute;top: 0;width: 5px;}
+.msgbox_layer img {float: left;margin: 40px 10px 0 5px;}
+#blackCover{
+	position:absolute;
+	left: 0;
+	top: 0;
+	background-color:black;
+	 
+    filter:alpha(opacity=50);   
+    -moz-opacity:0.5;   
+    -khtml-opacity: 0.5;   
+    opacity: 0.5;
+    z-index: 9530;
+}

@@ -1,0 +1,38 @@
+
+<!DOCTYPE struts PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+          "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+<package name="welcome" namespace="/admin" extends="struts-default">  
+
+	<interceptors>
+		<interceptor name="logInterceptor"
+			class="com.yunstudio.struts.interceptor.LogInterceptor">
+		</interceptor>
+		<interceptor-stack name="logInterceptorStack">
+			<interceptor-ref name="logInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</interceptor-stack>
+		
+	</interceptors>
+	<default-interceptor-ref name="logInterceptorStack"></default-interceptor-ref>
+	
+	<!-- 
+		用于记录日志的拦截器,
+		以上代码需要添加到每一个struts2的配置文件中的包中。
+	 -->
+	
+    
+    <action name="welcome_*" class="com.yunstudio.struts.action.admin.welcome.WelcomeAction" method="{1}">  
+        <result name="edit" type="dispatcher">/admin/AdminModify.jsp</result> 
+        <result name="welcome" type="dispatcher">/admin/welcome.jsp</result> 
+        <result name="faild" type="dispatcher">/admin/message.jsp</result> 
+        <result name="success" type="dispatcher">/admin/message.jsp</result>
+    </action>
+    
+    
+</package>
+
+
+</struts>

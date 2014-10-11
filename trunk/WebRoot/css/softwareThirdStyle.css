@@ -1,0 +1,201 @@
+@charset "utf-8";
+/* CSS Document */
+
+								
+
+.main .leftPart{
+	float:left;
+	width:235px;
+	
+}
+
+.main .leftPart .lBox1{
+	margin-bottom:20px;
+}
+.main .leftPart .lBoxTitle{
+	background:url(../images/rBoxTitleBg.gif) center center repeat-x;
+	color:#FFF;
+	height:32px;
+	line-height:32px;
+	position:relative;
+	font-size:16px;
+	font-family:"微软雅黑";
+	padding:0 0 0 10px;
+}
+
+.main .leftPart .lBoxTitle a{
+	position:absolute;
+	bottom:0;
+	right:10px;;
+	color:#FFF;
+	line-height:30px;
+	font-size:12px;
+	font-family:"宋体";
+}
+.main .leftPart .lBox1 ul {
+	border-left:1px #EEE solid;
+	border-right:1px #EEE solid;
+	border-bottom:1px #EEE solid;
+	padding:5px 0;
+}
+.main .leftPart .lBox1 ul li{
+	border-bottom:1px #999999 dashed;
+	margin:0 10px;
+	height:40px;
+	line-height:40px;
+	position:relative;
+	padding-left:20px;
+}
+
+.main .leftPart .lBox1 ul li img{
+	display:inline;
+}
+.main .leftPart .lBox1 ul li .columnLeftArrow{
+	position:absolute;
+	top:10px;
+	left:0;
+}
+.main .leftPart .lBox1 ul li .columnRightArrow{
+	position:absolute;
+	top:10px;
+	right:5px;
+}
+
+
+.main .leftPart .lBox2{
+	margin-bottom:20px;
+}
+.main .leftPart .lBoxTitle{
+	background:url(../images/rBoxTitleBg.gif) center center repeat-x;
+	color:#FFF;
+	height:32px;
+	line-height:32px;
+	position:relative;
+	font-size:16px;
+	font-family:"微软雅黑";
+	padding:0 0 0 10px;
+}
+
+.main .leftPart .lBoxTitle a{
+	position:absolute;
+	bottom:0;
+	right:10px;;
+	color:#FFF;
+	line-height:30px;
+	font-size:12px;
+	font-family:"宋体";
+}
+.main .leftPart .lBox2 ul {
+	border-left:1px #EEE solid;
+	border-right:1px #EEE solid;
+	border-bottom:1px #EEE solid;
+	padding:5px 0;
+	line-height:35px;
+}
+.main .leftPart .lBox2 ul li{
+	border-bottom:1px #999999 dashed;
+	margin:0 10px;
+	height:35px;
+	line-height:35px;
+	position:relative;
+	padding-left:10px;
+}
+
+.main .leftPart .lBox2 ul li img{
+	display:inline;
+	position:absolute;
+	top:12px;
+	left:0;
+}
+/*leftPart end*/
+
+.main .rightPart{
+	float:right;	
+	width:734px;
+	border-bottom:2px #EEE solid;
+	border-left:2px #EEE solid;
+	border-right:2px #EEE solid;
+	position:relative;
+	padding:0 10px;
+}
+.main .rightPart .secondTitle{
+	height:36px;
+	background:url(../images/secondTitleBg.jpg) center center repeat-x;
+	position:relative;
+	line-height:36px;
+}
+.main .rightPart .secondTitle .sTitle img{
+	position:absolute;
+	top:7px;
+	left:10px;
+}
+.main .rightPart .secondTitle .sTitle{
+	position:absolute;
+	left:10px;
+	top:0;
+	height:34px;
+	width:100px;
+	text-align:center;
+	border-top:2px #3e93ca solid;
+	border-left:1px #EEE solid;
+	border-right:1px #EEE solid;
+	background:#FFF;
+	line-height:34px;
+	color:#3e93ca;
+	font-weight:bold;
+	padding-left:10px;
+}
+
+.main .rightPart .secondTitle .catalog{
+	height:36px;
+	width:200px;
+	text-align:center;
+	font-size:12px;
+	line-height:12px;
+	position:absolute;
+	right:0;
+	top:7px;
+}
+.main .rightPart .secondTitle .catalog img{
+	display:inline;
+	vertical-align:central;
+}
+.main .rightPart .softTitle{
+	color:#4c94d6;
+	font-size:20px;
+	font-weight:bold;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+}
+.main .rightPart .softInfo{
+	font-size:12px;
+	line-height:27px;
+	margin-bottom:20px;
+	text-align:center;
+	margin:0 auto;
+}
+.main .rightPart .softView{
+	margin:20px auto;
+}
+
+.main .rightPart .softDescri span{
+	color:#549cdd;
+	
+}
+
+#bdshare{
+	position:absolute;
+	right:20px;
+	bottom:50px;
+}
+
+
+.main .rightPart .softPage{
+	height:50px;
+	line-height:50px;
+	border-top:1px #EEE dashed;
+}
+
+
+

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.yunstudio.entity.RepUser" table="rep_user" dynamic-insert="true" dynamic-update="true" batch-size="30">
+		<id name="id" type="integer" column="id">
+			<generator class="native" />
+		</id>
+
+		<property name="username" type="string" column="username">
+		</property>
+		<property name="password" type="string" column="password">
+		</property>
+		<property name="email" type="string" column="email">
+		</property>
+		<property name="islock" type="integer" column="islock">
+		</property>
+		<property name="ispassed" type="integer" column="ispassed">
+		</property>
+		<property name="notpassreason" type="string" column="notpassreason">
+		</property>
+		<property name="passtime" type="timestamp" column="passtime">
+		</property>
+		<property name="regtime" type="timestamp" column="regtime">
+		</property>
+		<property name="snumber" type="string" column="snumber">
+		</property>
+		<property name="realname" type="string" column="realname">
+		</property>
+		<property name="gender" type="integer" column="gender">
+		</property>
+		<property name="grade" type="string" column="grade">
+		</property>
+		<property name="school" type="string" column="school">
+		</property>
+		<property name="major" type="string" column="major">
+		</property>
+		<property name="birthday" type="timestamp" column="birthday">
+		</property>
+		<property name="qq" type="string" column="qq">
+		</property>
+		<property name="phone" type="string" column="phone">
+		</property>
+		<property name="lastloginip" type="string" column="lastloginip">
+		</property>
+		<property name="lastlogintime" type="timestamp" column="lastlogintime">
+		</property>
+		<property name="teacherorstu" type="integer" column="teacherorstu">
+		</property>
+		<property name="points" type="integer" column="points">
+		</property>
+
+		<!-- Associations -->
+
+		<!--  双向一对多 RepMessage -->
+		<set name="repMessages" table="rep_message">
+			<key>
+				<column name="userid" />
+			</key>
+			<one-to-many class="com.yunstudio.entity.RepMessage" />
+		</set>
+		
+		<!--  双向一对多RepResource -->
+		<set name="repResources" table="rep_resource">
+			<key>
+				<column name="userid" />
+			</key>
+			<one-to-many class="com.yunstudio.entity.RepResource" />
+		</set>
+		
+		<!-- 双向一对多 RepComment -->
+		<set name="repComments" table="rep_comment">
+			<key>
+				<column name="userid" />
+			</key>
+			<one-to-many class="com.yunstudio.entity.RepComment" />
+		</set>
+		
+		<!-- 一对多 -->
+		<set name="repFolders" table="rep_folder" 
+			cascade="delete-orphan">
+			<key>
+				<column name="userid" />
+			</key>
+			<one-to-many class="com.yunstudio.entity.RepFolder"/>
+		</set>
+		
+		<!-- 一对多 -->
+		<set name="repTopics" table="rep_topic">
+			<key>
+				<column name="userid" />
+			</key>
+			<one-to-many class="com.yunstudio.entity.RepTopic"/>
+		</set>
+		
+
+	</class>
+</hibernate-mapping>

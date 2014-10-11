@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="admin" location="0,0" size="0,0">
+    <action name="login" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="index.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="login.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="result.jsp" path="/result.jsp" location="0,0" size="0,0" />
+  <webResource name="login.jsp" path="/login.jsp" location="0,0" size="0,0" />
+  <webResource name="index.jsp" path="/index.jsp" location="0,0" size="0,0" />
+  <webResource name="index.jsp" path="/admin/index.jsp" location="0,0" size="0,0" />
+  <webResource name="login.jsp" path="/admin/login.jsp" location="0,0" size="0,0" />
+  <include file="struts-admin-user.xml" location="0,0" size="0,0" />
+  <include file="struts-admin-notice.xml" location="0,0" size="0,0" />
+  <include file="struts-admin-catalog.xml" location="0,0" size="0,0" />
+  <include file="struts-admin-asks.xml" location="0,0" size="0,0" />
+  <include file="struts-admin-resource.xml" location="0,0" size="0,0" />
+  <include file="struts-admin-systemsetup.xml" location="0,0" size="0,0" />
+</Struts2Diagram>
+

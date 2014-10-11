@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.yunstudio.entity.RepRole" table="rep_role" dynamic-insert="true" dynamic-update="true" batch-size="30"> 
+
+		<id name="id" type="integer" column="id"> 
+			<generator class="native" />
+		</id>
+
+		<property name="name" type="string" column="name"> 
+		</property>
+		<property name="description" type="string" column="description"> 
+		</property>
+		<property name="sort" type="integer" column="sort"> 
+		</property>
+
+		<!-- Associations -->
+
+		<!-- 一对多双向 RepAdmin -->
+		<set name="repAdmins" table="rep_admin"> 
+			<key>
+				<column name="roleid" />
+			</key>
+			<one-to-many class="com.yunstudio.entity.RepAdmin" />
+		</set>
+		
+		<!-- 多对多双向 RepPermission -->
+		<set name="repPermissions" table="rep_role_permission" 
+			fetch="subselect" lazy="false" inverse="true"><!-- RepPermission配置了inverse="true" --> 
+			<key>
+				<column name="roleid" />
+			</key>
+			<many-to-many class="com.yunstudio.entity.RepPermission" column="permissionid" />
+		</set>
+
+	</class>
+</hibernate-mapping>

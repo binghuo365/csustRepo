@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	 xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	 xmlns:context="http://www.springframework.org/schema/context"
+	 xsi:schemaLocation="
+	 http://www.springframework.org/schema/beans   
+	 http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  
+	 http://www.springframework.org/schema/aop 
+	 http://www.springframework.org/schema/aop/spring-aop-3.1.xsd 
+	 http://www.springframework.org/schema/tx 
+	 http://www.springframework.org/schema/tx/spring-tx-3.1.xsd 
+	 http://www.springframework.org/schema/context  
+	 http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:hibernate_y.properties</value>
+		</property>
+	</bean>
+<!-- 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${connection.driver_class}" />
+		<property name="jdbcUrl" value="${connection.url}" />
+		<property name="user" value="${connection.username}" />
+		<property name="password" value="${connection.password}" />
+		<property name="minPoolSize" value="${connection.min_pool_size}" />
+		<property name="maxPoolSize" value="${connection.max_pool_size}" />
+    	this 2 property is used to test Connection leaks
+    	<property name="unreturnedConnectionTimeout" value="10"></property>
+    	<property name="debugUnreturnedConnectionStackTraces" value="true"></property>
+    
+    		
+		#解决MYSQL 8小时问题
+	   <property name="testConnectionOnCheckout" value="${jdbc.testConnectionOnCheckout}"/>
+	   <property name="maxStatements" value="0"/>
+	   <property name="checkoutTimeout" value="${jdbc.checkoutTimeout}"/>
+	</bean> -->
+	
+	
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close"> 
+	    <property name="url" value="${connection.url}" />
+	    <property name="username" value="${connection.username}" />
+	    <property name="password" value="${connection.password}" />
+	     
+	    <property name="filters" value="stat" />
+	 
+	    <property name="maxActive" value="20" />
+	    <property name="initialSize" value="1" />
+	    <property name="maxWait" value="60000" />
+	    <property name="minIdle" value="1" />
+	 
+	    <property name="timeBetweenEvictionRunsMillis" value="3000" />
+	    <property name="minEvictableIdleTimeMillis" value="300000" />
+	 
+	    <property name="validationQuery" value="SELECT 'x'" />
+	    <property name="testWhileIdle" value="true" />
+	    <property name="testOnBorrow" value="false" />
+	    <property name="testOnReturn" value="false" />
+	     
+	    <property name="poolPreparedStatements" value="false" />
+	    <property name="maxPoolPreparedStatementPerConnectionSize" value="20" />
+	    <property name="logAbandoned" value="true"></property>
+	    <property name="removeAbandonedTimeout" value="5"></property>
+	</bean>
+	
+	
+	<bean id="sessionFactory" 
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean" >
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.current_session_context_class">${hibernate.current_session_context_class}</prop>
+				<prop key="hibernate.cache.region.factory_class">${hibernate.cache.region.factory_class}</prop>
+				<prop key="hibernate.c3p0.timeout">${hibernate.c3p0.timeout}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/yunstudio/entity/RepAdmin.hbm.xml</value>
+				<value>com/yunstudio/entity/RepComment.hbm.xml</value>
+				<value>com/yunstudio/entity/RepFolder.hbm.xml</value>
+				<value>com/yunstudio/entity/RepFormat.hbm.xml</value>
+				<value>com/yunstudio/entity/RepGscatalog.hbm.xml</value>
+				<value>com/yunstudio/entity/RepLog.hbm.xml</value>
+				<value>com/yunstudio/entity/RepMessage.hbm.xml</value>
+				<value>com/yunstudio/entity/RepNotice.hbm.xml</value>
+				<value>com/yunstudio/entity/RepParam.hbm.xml</value>
+				<value>com/yunstudio/entity/RepPermission.hbm.xml</value>
+				<value>com/yunstudio/entity/RepResource.hbm.xml</value>
+				<value>com/yunstudio/entity/RepRole.hbm.xml</value>
+				<value>com/yunstudio/entity/RepTag.hbm.xml</value>
+				<value>com/yunstudio/entity/RepUser.hbm.xml</value>
+				<value>com/yunstudio/entity/RepZycatalog.hbm.xml</value>
+				<value>com/yunstudio/entity/RepTopic.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+
+
+	<context:annotation-config /><!-- 基于注解注入 -->
+	<context:component-scan base-package="com.yunstudio"></context:component-scan><!-- 省掉bean applicationxml注册 -->
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<!--不能使用声明式事务，具体原因未知  -->
+	
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="*" propagation="REQUIRED" isolation="DEFAULT" />
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:pointcut id="serviceMethods" expression="execution(* com.yunstudio.dao.impl.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods" />
+	</aop:config> -->
+
+
+</beans>

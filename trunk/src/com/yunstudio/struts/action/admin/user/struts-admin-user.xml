@@ -1,0 +1,48 @@
+
+<!DOCTYPE struts PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+          "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+<package name="user" namespace="/admin/user" extends="struts-default">  
+
+	<interceptors>
+		<interceptor name="logInterceptor"
+			class="com.yunstudio.struts.interceptor.LogInterceptor">
+		</interceptor>
+		<interceptor-stack name="logInterceptorStack">
+			<interceptor-ref name="logInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</interceptor-stack>
+		
+	</interceptors>
+	<default-interceptor-ref name="logInterceptorStack"></default-interceptor-ref>
+	
+	<!-- 
+		用于记录日志的拦截器,
+		以上代码需要添加到每一个struts2的配置文件中的包中。
+	 -->
+	
+    <action name="user_*" class="com.yunstudio.struts.action.admin.user.UserAction" method="{1}">  
+        <result name="left" type="dispatcher">/admin/user/left.jsp</result>  
+        <result name="list" type="dispatcher">/admin/user/UserList.jsp</result>  
+        <result name="listAction" type="redirectAction">user_list</result>   
+        <result name="edit" type="dispatcher">/admin/user/UserModify.jsp</result> 
+        <result name="add" type="dispatcher">/admin/user/UserAdd.jsp</result>
+        <result name="success" type="dispatcher">/admin/message.jsp</result>
+    </action>  
+    
+    <action name="admin_*" class="com.yunstudio.struts.action.admin.user.AdminAction" method="{1}">  
+    	<result name="list" type="dispatcher">/admin/user/AdminList.jsp</result>  
+        <result name="listAction" type="redirectAction">admin_list</result>   
+        <result name="edit" type="dispatcher">/admin/user/AdminModify.jsp</result> 
+        <result name="add" type="dispatcher">/admin/user/AdminAdd.jsp</result> 
+        <result name="faild" type="dispatcher">/admin/message.jsp</result> 
+        <result name="success" type="dispatcher">/admin/message.jsp</result>
+    </action>
+    
+    
+</package>
+
+
+</struts>

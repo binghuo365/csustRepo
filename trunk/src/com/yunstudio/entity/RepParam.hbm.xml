@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+
+	<class name="com.yunstudio.entity.RepParam" table="rep_params" dynamic-update="true" batch-size="30"> 
+
+		<id name="id" type="integer" column="id"> 
+			<generator class="native" />
+		</id>
+
+		<property name="tisneedpass" type="integer" column="tisneedpass" insert="false"> 
+		</property>
+		<property name="sisneedpass" type="integer" column="sisneedpass" insert="false"> 
+		</property>
+		<property name="tuploadneedpass" type="integer" column="tuploadneedpass" insert="false">
+		</property>
+		<property name="suploadneedpass" type="integer" column="suploadneedpass" insert="false">
+		</property>
+		<property name="tctneedpass" type="integer" column="tctneedpass" insert="false">
+		</property>
+		<property name="sctneedpass" type="integer" column="sctneedpass" insert="false">
+		</property>
+		<property name="askneedpass" type="integer" column="askneedpass" insert="false">
+		</property>
+		<property name="visitordownload" type="integer" column="visitordownload" insert="false">
+		</property>
+		<property name="format" type="string" column="format" insert="false">
+		</property>
+		<property name="dloadneedpoints" type="integer" column="dloadneedpoints" insert="false">
+		</property>
+
+	</class>
+</hibernate-mapping>

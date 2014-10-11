@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="user" location="183,165" size="665,385" />
+  <webResource name="left.jsp" path="/admin/user/left.jsp" location="884,255" size="150,55" />
+  <webResource name="list.jsp" path="/admin/user/list.jsp" location="10,255" size="150,55" />
+  <webResource name="edit.jsp" path="/admin/user/edit.jsp" location="147,10" size="150,55" />
+  <webResource name="add.jsp" path="/admin/user/add.jsp" location="391,10" size="150,55" />
+  <webResource name="message.jsp" path="/admin/message.jsp" location="637,10" size="150,55" />
+</Struts2Diagram>
+
